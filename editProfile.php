@@ -50,7 +50,7 @@
     
 
 ?>
-
+<div class="background">
 <div class="container">
       
         <form class="needs-validation" method="post" enctype="multipart/form-data"   action="" novalidate>
@@ -122,6 +122,16 @@
             }, false);
             })();
             </script>
+
+
+<style>
+    *{
+      background-color: #D9EEE1;
+    }
+
+</style>
+</div>
+</div>
     
 </body>
 </html>

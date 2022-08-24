@@ -9,7 +9,7 @@
 </head>
 
 <body>
-
+<div class="background">
     <div class="container">
       
         <form class="needs-validation" method="post" enctype="multipart/form-data"   action="" novalidate>
@@ -111,8 +111,15 @@
     <br/>
     <a href="logIn.php" id="loginbtn" class="btn btn-primary btn-block">Log In</a>
 
+<style>
+    *{
+      background-color: #D9EEE1;
+    }
+
+</style>
 
     </div>
+</div>   
 </body>
 </html>
 

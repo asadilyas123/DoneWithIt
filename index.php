@@ -28,9 +28,22 @@
     $activeFname = $row2["First_name"];
     $activeLname = $row2["Last_name"];
     $fullname = $activeFname .' '. $activeLname;
+
+
+    $query3 ="SELECT* from uploads where email = '$activeemail';";
+    $resultSet3 = mysqli_query($connection,$query3);
+    $totaluploads = mysqli_num_rows($resultSet3);
+
+    $query4 = "SELECT* from uploads where buyer = '$activeemail';";
+    $resultSet4 = mysqli_query($connection,$query4);
+    $totalpurchased = mysqli_num_rows($resultSet4);
+
+    $query5 = "SELECT* from uploads where email = '$activeemail' and sold = 1;";
+    $resultSet5 = mysqli_query($connection,$query5);
+    $totalsold = mysqli_num_rows($resultSet5);    
 ?>
  <div class="background">
-       <a href="" class="btn btn-info" id="browsebtn" style="font-weight:bold">Browse</a>
+       <a href="browse.php" class="btn btn-info" id="browsebtn" style="font-weight:bold">Browse</a>
     <div class="container">
         <div class="row">
             <div class="col-md-8"> <br/>
@@ -39,27 +52,27 @@
           <ul class="list-group">
              <li class="list-group-item d-flex justify-content-between align-items-center">
                Number of items you have uploaded
-               <span class="badge badge-primary badge-pill">2</span>
+               <span class="badge badge-primary badge-pill"><?= $totaluploads ?></span>
              </li>
              <li class="list-group-item d-flex justify-content-between align-items-center">
                Number of items you have purchased
-               <span class="badge badge-primary badge-pill">5</span>
+               <span class="badge badge-primary badge-pill"><?= $totalpurchased ?></span>
             </li>
              <li class="list-group-item d-flex justify-content-between align-items-center">
                Number of items you have sold
-               <span class="badge badge-primary badge-pill">9</span>
+               <span class="badge badge-primary badge-pill"><?= $totalsold ?></span>
             </li>
           </ul>
                 <div class="upload_buttons">
                    <a href="uploadItem.php?Email=<?= $activeemail ?>" class="btn btn-success" id="uploadbtn">Upload Item</a>
-                   <a href="" class="btn btn-success" id="myitemsbtn">My Items</a> </div>
+                   <a href="myItems.php?Email=<?= $activeemail ?>" class="btn btn-success" id="myitemsbtn">My Items</a> </div>
                 </div>
             <div class="col-md-4">
             <a class="btn btn-warning" id="logoutbtn" href="logout.php">Log Out</a> <br/> <br/>
                 <h2>My Profile</h2>
             <div class="card" style="width:100%">
 
-            <img class="card-img-top" src="profilePics/<?= $activefilename ?>" alt="Card image" style="width:100%">
+            <img class="card-img-top" src="profilePics/<?= $activefilename ?>" alt="Click on Edit Profile to upload your profile picture" style="width:100%">
             <div class="card-body">
             <h4 class="card-title" style="font-weight:bolder;"><?php echo $fullname  ?></h4>
             <p class="card-text">To update your profile or change password, Click the button below:</p>
@@ -81,7 +94,8 @@
       background-color: #D9EEE1;
     }
     #browsebtn{
-      margin: 0.1% 60%;
+      display:grid;
+      margin: 5px 550px; 
     }
     .container{
       margin-top: 40px; 

@@ -8,7 +8,9 @@
    <?php require_once("cdn.php"); ?>
 </head>
 <body>
+    <div class="background">
 <div class="container">
+    <h1 class="text-primary">Welcome to DoneWithIt</h1> <br/> <br/>
         <form method="post" action="">
             <label for="email">Enter Email</label>
             <input type="text" name="email" id="email" class="form-control">
@@ -43,6 +45,19 @@
     
     
 ?>
+
+<style>
+    *{
+      background-color: #D9EEE1;
+    }
+    h1{
+        font-size: 3.5rem;
+    }
+
+</style>
+
+</div>
+</div>
     
 </body>
 </html>
